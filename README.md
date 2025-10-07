@@ -7,7 +7,9 @@ Citation:
 https://www.mayoclinic.org/tests-procedures/c-reactive-protein-test/about/pac-20385228 
 
 ## Google Cloud Platform
-Region:
+Region: europe-west1
+
+Endpoint URL: https://crp-value-checker-872931411598.europe-west1.run.app 
 
 ### Deployment commands/steps executed:
 
