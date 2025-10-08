@@ -3,10 +3,7 @@ import functions_framework
 
 @functions_framework.http
 def hello_http(request):
-    """HTTP Cloud Function.
-    Expects JSON with 'CRP' (or query params as fallback).
-    Returns a JSON classification of CRP.
-    """
+   
     # Prefer JSON body; fall back to query parameters for convenience
     data = request.get_json(silent=True) or {}
     args = request.args or {}
