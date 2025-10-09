@@ -6,8 +6,10 @@ def hello_http(request):
 
     if request_args and 'crp' in request_args:
         response_crp = request_args['crp']
-    else:
+    elif request_args:
         response_crp = 'You did not enter a CRP into the argument'
+    else:
+        response_crp = 'Please enter a CRP value in the argument'
 
     crp_abnormal_normal = 'abnormal' if response_crp != 'N/A' and (float(response_crp) > 8.0) else 'normal'
 
