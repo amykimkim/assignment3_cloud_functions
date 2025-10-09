@@ -1,40 +1,16 @@
-import json
 import functions_framework
 
 @functions_framework.http
 def hello_http(request):
-   
-    # Prefer JSON body; fall back to query parameters for convenience
-    data = request.get_json(silent=True) or {}
-    args = request.args or {}
+    request_args = request.args
 
-    crp = data.get("CRP", args.get("CRP"))
+    if request_args and 'crp' in request_args:
+        response_crp = request_args['crp']
+    else:
+        response_crp = 'You did not enter a CRP into the argument'
 
-    # Presence check
-    if crp is None:
-        return (
-            json.dumps({"error": "CRP is required."}),
-            400,
-            {"Content-Type": "application/json"},
-        )
+    crp_abnormal_normal = 'abnormal' if response_crp != 'N/A' and (float(response_crp) > 8.0) else 'normal'
 
-    # Type/convert check
-    try:
-        crp_val = float(crp)
-    except (TypeError, ValueError):
-        return (
-            json.dumps({"error": "'CRP' must be a number."}),
-            400,
-            {"Content-Type": "application/json"},
-        )
+    response = f"Response: CRP level is {response_crp}; CRP status is {crp_abnormal_normal}"
 
-    status = "normal" if (crp_val < 8.0) else "abnormal"
-    category = "Normal (<8.0)" if status == "normal" else "Elevated (simplified)"
-
-    payload = {
-        "CRP": crp_val,
-        "status": status,
-        "category": category,
-    }
-
-    return json.dumps(payload), 200, {"Content-Type": "application/json"}
+    return response
