@@ -13,7 +13,9 @@ Endpoint URL: https://crp-value-checker-872931411598.europe-west1.run.app
 
 ### Deployment commands/steps executed:
 
-Screenshots showing functionality that have your custom URLs, along with outputs
+#### Screenshot showing functionality that have your custom URLs, along with outputs:
+![screenshot](GCP/GCP_cloud_run_screenshot.png)
+
 
 Public endpoint URLs (+ notes on auth: unauthenticated vs key‑based).
 
