@@ -28,13 +28,20 @@ Abnormal:
 ## Azure
 Region: east-US
 
+Endpoint URL: https://crp-checker-test-h8g3g2d5dhbzfwdp.eastus-01.azurewebsites.net/api/http_trigger1?code=yMFPEoOI7xDw9sxUFqoeeThk02uSase4uOervOJ6mYkqAzFu9TeNZw==
+
+
 ### Deployment commands/steps executed:
 
-Screenshots showing functionality that have your custom URLs, along with outputs
+Screenshots showing functionality that have your custom URLs:
+![azure_page](Azure/Azure_cloud_run_screenshot.png)
 
-Public endpoint URLs (+ notes on auth: unauthenticated vs key‑based).
+#### Example requests invocations that work as shown in your video:
+Normal:
+![normal](Azure/Azure_test_output_normal.png)
 
-Example requests invocations that work as shown in your video.
-
+Abnormal:
+![abnormal](Azure/Azure_test_output_abnormal.png)
 
 ## Short comparison paragraph of the two clouds
+While both Azure Functions and Google Cloud Functions were straightforward to set up and deploy, I found Azure to be slightly more beginner-friendly. A key reason for this was the ability to test the function directly within the same page in the Azure portal, which streamlined the development process. In contrast, testing with Google Cloud Functions often required navigating back and forth between different pages to make changes and then test them, which felt less integrated. Furthermore, for Google Cloud Functions, there seemed to be a longer delay for code changes to be saved and become available for testing in Google Colab after each modification
